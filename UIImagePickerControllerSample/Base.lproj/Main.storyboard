@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIImagePickerControllerSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,67 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bkF-0a-RCi">
+                                <rect key="frame" x="20" y="20" width="560" height="470"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BR7-F1-3a5">
+                                <rect key="frame" x="20" y="510" width="560" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-9e-Vx0">
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="70"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.77608536073825507" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="cameraStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m1f-9D-Vg2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnV-Ep-jRD">
+                                        <rect key="frame" x="196.5" y="0.0" width="167" height="70"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.77608536073825507" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="savePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dp-bG-U6L"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3o-03-p7R">
+                                        <rect key="frame" x="393.5" y="0.0" width="166.5" height="70"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.77608536073825507" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Album"/>
+                                        <connections>
+                                            <action selector="showAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="94n-Jd-For"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BR7-F1-3a5" secondAttribute="height" multiplier="8:1" id="soF-eF-4Kg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BR7-F1-3a5" secondAttribute="bottom" constant="20" id="8c3-xT-cPr"/>
+                            <constraint firstItem="bkF-0a-RCi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="EYn-lZ-AVR"/>
+                            <constraint firstItem="bkF-0a-RCi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RSH-te-lfw"/>
+                            <constraint firstItem="BR7-F1-3a5" firstAttribute="trailing" secondItem="bkF-0a-RCi" secondAttribute="trailing" id="SEX-zQ-uhW"/>
+                            <constraint firstItem="BR7-F1-3a5" firstAttribute="top" secondItem="bkF-0a-RCi" secondAttribute="bottom" constant="20" id="ToC-pt-MOx"/>
+                            <constraint firstItem="bkF-0a-RCi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ayF-5z-Qqq"/>
+                            <constraint firstItem="BR7-F1-3a5" firstAttribute="leading" secondItem="bkF-0a-RCi" secondAttribute="leading" id="wJq-qw-Ta8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraStartButton" destination="xfE-9e-Vx0" id="aLY-mx-p3X"/>
+                        <outlet property="cameraView" destination="bkF-0a-RCi" id="C7c-IK-Sua"/>
+                        <outlet property="photoSaveButton" destination="rnV-Ep-jRD" id="1zE-Rb-6CZ"/>
+                        <outlet property="showAlbumButton" destination="O3o-03-p7R" id="pL4-6H-E3Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="600" y="374"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="test.jpg" width="2448" height="2448"/>
+    </resources>
 </document>
